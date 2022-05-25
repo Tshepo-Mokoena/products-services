@@ -16,9 +16,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import com.tshepo.persistence.Category;
-import com.tshepo.persistence.Product;
-
 import lombok.Data;
 
 @Data
