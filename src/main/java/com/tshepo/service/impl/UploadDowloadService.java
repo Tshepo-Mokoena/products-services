@@ -52,7 +52,7 @@ public class UploadDowloadService implements IUploadDowloadService{
         try {
 			storage.create(blobInfo, file.getInputStream());
 		} catch (IOException e) {e.printStackTrace();}        
-        String fileUrlString = "https://firebasestorage.googleapis.com/v0/b/"+bucketName+"/o/"+imageName+"?alt=media";
+        String fileUrlString = generateImageUrl(bucketName, imageName);
         log.info(fileUrlString);
         return fileUrlString;              
 	}
@@ -64,5 +64,9 @@ public class UploadDowloadService implements IUploadDowloadService{
 	private String getExtension(String originalFileName) {
         return StringUtils.getFilenameExtension(originalFileName);
     }
+	
+	private String generateImageUrl(String bucketName, String imageName) {
+		return "https://firebasestorage.googleapis.com/v0/b/"+bucketName+"/o/"+imageName+"?alt=media";
+	}
 
 }

@@ -13,13 +13,16 @@ import com.tshepo.persistence.repositories.ICategoryRepository;
 import com.tshepo.service.ICategoryService;
 import com.tshepo.util.Utilities;
 
+import lombok.NoArgsConstructor;
+
 @Service
+@NoArgsConstructor
 public class CategoryService implements ICategoryService{
 	
 	private ICategoryRepository categoryRepository;
 	
 	@Autowired
-	protected CategoryService(ICategoryRepository categoryRepository) 
+	private CategoryService(ICategoryRepository categoryRepository) 
 	{
 		this.categoryRepository = categoryRepository;
 	}

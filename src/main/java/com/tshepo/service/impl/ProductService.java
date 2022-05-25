@@ -13,13 +13,16 @@ import com.tshepo.persistence.Product;
 import com.tshepo.persistence.repositories.IProductRepository;
 import com.tshepo.service.IProductService;
 
+import lombok.NoArgsConstructor;
+
 @Service
+@NoArgsConstructor
 public class ProductService implements IProductService{
 	
 	private IProductRepository productRepository;
 	
 	@Autowired
-	protected ProductService(IProductRepository productRepository)	
+	private ProductService(IProductRepository productRepository)	
 	{
 		this.productRepository = productRepository;
 	}
