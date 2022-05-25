@@ -42,6 +42,7 @@ public class UploadDowloadService implements IUploadDowloadService{
 		}
     }
 	
+	@Override
 	@Async
 	public String uploadFile(MultipartFile file, String productId) 
 	{
