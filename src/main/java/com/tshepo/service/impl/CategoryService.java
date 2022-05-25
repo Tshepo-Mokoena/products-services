@@ -19,7 +19,7 @@ public class CategoryService implements ICategoryService{
 	private ICategoryRepository categoryRepository;
 	
 	@Autowired
-	private CategoryService(ICategoryRepository categoryRepository) 
+	protected CategoryService(ICategoryRepository categoryRepository) 
 	{
 		this.categoryRepository = categoryRepository;
 	}
@@ -61,7 +61,7 @@ public class CategoryService implements ICategoryService{
 	@Override
 	public List<Category> searchCategory(String keyword) 
 	{
-		return categoryRepository.findByNameContaining(keyword);		
+		return categoryRepository.findByCategoryNameContaining(keyword);		
 	}
 
 }

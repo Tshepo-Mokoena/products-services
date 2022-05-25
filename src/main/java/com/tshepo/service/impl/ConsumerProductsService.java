@@ -21,7 +21,7 @@ public class ConsumerProductsService implements IConsumerProductsService{
 	private IUploadDowloadService uploadDowloadService;
 	
 	@Autowired
-	private ConsumerProductsService(IProductService productService,IUploadDowloadService uploadDowloadService) 
+	protected ConsumerProductsService(IProductService productService,IUploadDowloadService uploadDowloadService) 
 	{
 		this.productService = productService;
 		this.uploadDowloadService = uploadDowloadService;

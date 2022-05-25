@@ -19,7 +19,7 @@ public class ProductService implements IProductService{
 	private IProductRepository productRepository;
 	
 	@Autowired
-	private ProductService(IProductRepository productRepository)	
+	protected ProductService(IProductRepository productRepository)	
 	{
 		this.productRepository = productRepository;
 	}
@@ -55,7 +55,7 @@ public class ProductService implements IProductService{
 	@Override
 	public Optional<Product> findByProductName(String name) 
 	{
-		return productRepository.findByProductName(name);
+		return productRepository.findByName(name);
 	}
 	
 	

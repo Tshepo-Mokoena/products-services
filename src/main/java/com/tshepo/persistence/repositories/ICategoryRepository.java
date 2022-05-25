@@ -17,6 +17,6 @@ public interface ICategoryRepository extends CrudRepository<Category, Long>{
 	
 	Optional<Category> findByCategoryId(String categoryId);
 
-	List<Category> findByNameContaining(String keyword);
+	List<Category> findByCategoryNameContaining(String keyword);
 
 }
