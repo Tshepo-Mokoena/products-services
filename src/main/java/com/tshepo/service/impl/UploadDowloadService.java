@@ -36,10 +36,7 @@ public class UploadDowloadService implements IUploadDowloadService{
     				.setCredentials(GoogleCredentials.fromStream(serviceAccount))
     				.setProjectId("tshepo-9129c")
     				.build().getService();			
-		} catch (Exception e) 
-    	{
-			e.printStackTrace();
-		}
+		} catch (Exception e) {e.printStackTrace();}
     }
 	
 	@Override
@@ -54,13 +51,10 @@ public class UploadDowloadService implements IUploadDowloadService{
                 .build();
         try {
 			storage.create(blobInfo, file.getInputStream());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		} catch (IOException e) {e.printStackTrace();}        
         String fileUrlString = "https://firebasestorage.googleapis.com/v0/b/"+bucketName+"/o/"+imageName+"?alt=media";
         log.info(fileUrlString);
-        return fileUrlString;
-              
+        return fileUrlString;              
 	}
 	
 	private String generateImageName(String originalFileName, String productId) {
