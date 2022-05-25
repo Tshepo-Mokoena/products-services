@@ -10,4 +10,6 @@ public interface IConsumerProductsService {
 
 	URI createNewProduct(Product product, MultipartFile image);
 
+	Product getByProductId(String productId);
+
 }
