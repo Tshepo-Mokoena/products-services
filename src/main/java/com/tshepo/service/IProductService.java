@@ -7,7 +7,7 @@ import com.tshepo.persistence.Product;
 
 public interface IProductService {
 
-	Product saveProduct(Product product);
+	Product newProduct(Product product);
 
 	List<Product> findAll();
 
@@ -18,5 +18,7 @@ public interface IProductService {
 	Optional<Product> findByProductName(String name);
 
 	List<Product> productSearch(String name);
+
+	void updateProduct(Product product);
 
 }

@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tshepo.persistence.Product;
 import com.tshepo.persistence.repositories.IProductRepository;
@@ -23,12 +24,20 @@ public class ProductService implements IProductService{
 		this.productRepository = productRepository;
 	}
 	
+	@Transactional
 	@Override
-	public Product saveProduct(Product product) 
+	public Product newProduct(Product product) 
 	{		
 		product.setActive(false);
 		product.setCreatedAt(LocalDateTime.now());
 		return productRepository.save(product);
+	}
+	
+	@Transactional
+	@Override
+	public void updateProduct(Product product) 
+	{
+		productRepository.save(product);
 	}
 	
 	@Override

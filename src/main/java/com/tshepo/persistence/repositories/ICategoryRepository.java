@@ -1,5 +1,6 @@
 package com.tshepo.persistence.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
@@ -15,5 +16,7 @@ public interface ICategoryRepository extends CrudRepository<Category, Long>{
 	Optional<Category> findByCategoryName(String categoryName);
 	
 	Optional<Category> findByCategoryId(String categoryId);
+
+	List<Category> findByNameContaining(String keyword);
 
 }
