@@ -1,5 +1,6 @@
 package com.tshepo.persistence.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
@@ -12,8 +13,10 @@ import com.tshepo.persistence.Product;
 @Transactional(readOnly = true)
 public interface IProductRepository  extends CrudRepository<Product, Long>{
 	
-	Optional<Product> findByName(String characters);
+	List<Product> findByNameContaining(String keyword);
 	
 	Optional<Product> findByProductId(String categoryId);
+
+	Optional<Product> findByProductName(String name);	
 
 }
