@@ -1,4 +1,4 @@
-package com.tshepo.persistence.repositories;
+package com.tshepo.product.persistence.repository;
 
 import java.util.Optional;
 
@@ -12,15 +12,15 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tshepo.persistence.Category;
-import com.tshepo.persistence.Product;
+import com.tshepo.product.persistence.Product;
 
 @Repository
 @Transactional(readOnly = true)
-public interface IProductRepository  extends PagingAndSortingRepository<Product, Long>{
+public interface IProductRepository extends PagingAndSortingRepository<Product, Long>{
 	
-	Page<Product> findByNameContaining(String keyword, Pageable pageable);
+	Page<Product> findByTitleContaining(String keyword, Pageable pageable);
 	
-	Page<Product> findByNameContainingAndActive(String name, Boolean active, Pageable pageable);
+	Page<Product> findByTitleContainingAndActive(String title, Boolean active, Pageable pageable);
 	
 	Page<Product> findByCategoriesAndActive(Category category, Boolean active, Pageable pageable);
 	
@@ -32,6 +32,6 @@ public interface IProductRepository  extends PagingAndSortingRepository<Product,
 	
 	Optional<Product> findByProductId(String categoryId);
 
-	Optional<Product> findByName(String name);	
+	Optional<Product> findByTitle(String title);	
 
 }
