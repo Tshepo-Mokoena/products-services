@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +17,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
-import com.tshepo.persistence.Category;
 
 import lombok.Data;
 
@@ -67,7 +66,7 @@ public class Product {
 	private BigDecimal discount;	
 
 	@Column(name = "active", nullable = false)
-	private Boolean active;
+	private Boolean active = false;
 	
 	@Column(name = "published_at", nullable = false)
 	private LocalDateTime publishedAt;
@@ -77,5 +76,22 @@ public class Product {
 	
 	@Column(name = "created_at", nullable = false)
 	private LocalDateTime createdAt;
+
+	public static Product setProduct(Product product) {
+		Product setProduct = new Product();
+		setProduct.setActive(product.getActive());
+		setProduct.setCategories(product.getCategories());
+		setProduct.setCreatedAt(LocalDateTime.now());
+		setProduct.setDesc(product.getDesc());
+		setProduct.setDiscount(product.getDiscount());
+		setProduct.setPrice(product.getPrice());
+		setProduct.setProductId(UUID.randomUUID().toString());
+		setProduct.setPublishedAt(LocalDateTime.now());
+		setProduct.setQty(product.getQty());
+		setProduct.setSubTitle(product.getSubTitle());
+		setProduct.setTitle(product.getTitle());
+		setProduct.setUpdatedAt(LocalDateTime.now());
+		return setProduct;
+	}
 
 }

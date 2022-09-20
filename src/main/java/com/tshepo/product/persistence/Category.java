@@ -1,5 +1,6 @@
 package com.tshepo.product.persistence;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,8 +16,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.tshepo.persistence.Product;
-
 import lombok.Data;
 
 @Data
@@ -28,6 +27,9 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, updatable = false, unique = true)
 	private Long id;
+	
+	@Column(name = "product_id", updatable = false, unique = true)
+	private String categoryId;
 	
 	@NotBlank(message = "title should atleast contain 2 to 100 characters")
 	@Size(min = 2, max = 100, message = "title should atleast contain 2 to 100 characters")
@@ -42,5 +44,12 @@ public class Category {
     		)
 	@JsonIgnore
     private List<Product> products;
+	
+
+	@Column(name = "updated_at", nullable = false)
+	private LocalDateTime updatedAt;
+	
+	@Column(name = "created_at", nullable = false)
+	private LocalDateTime createdAt;
 
 }

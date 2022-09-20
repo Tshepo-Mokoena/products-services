@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.tshepo.persistence.Category;
+import com.tshepo.product.persistence.Category;
 import com.tshepo.product.persistence.Product;
 
 @Repository
@@ -30,7 +30,7 @@ public interface IProductRepository extends PagingAndSortingRepository<Product, 
 	@Query("update Product set active = :active where productId = :productId")
 	void activateProduct(@Param("productId") String productId, @Param("active") Boolean active);
 	
-	Optional<Product> findByProductId(String categoryId);
+	Optional<Product> findByProductId(String productId);
 
 	Optional<Product> findByTitle(String title);	
 

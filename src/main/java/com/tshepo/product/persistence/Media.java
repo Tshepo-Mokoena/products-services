@@ -40,12 +40,12 @@ public class Media {
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
 	
-	public static Media createdMedia(Product product, String mediaUrl, String mediaExtension) {
+	public static Media createdMedia(Product product, String mediaId, String mediaUrl, String mediaName) {
 		Media media = new Media();
 		media.setProduct(product);
-		media.setMediaId(UUID.randomUUID().toString());
+		media.setMediaId(mediaId);
 		media.setMediaURL(mediaUrl);
-		media.setMediaName(media.getMediaId() + mediaExtension);
+		media.setMediaName(mediaName);
 		media.setCreatedAt(LocalDateTime.now());
 		return media;
 	}
