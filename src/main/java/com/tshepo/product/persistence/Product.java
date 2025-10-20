@@ -22,7 +22,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "products")
+@Table(name = "my_products")
 public class Product {
 	
 	@Id
@@ -38,7 +38,7 @@ public class Product {
 	@Column(name = "title", updatable = true, nullable = false)
 	private String title;
 	
-	@NotBlank(message = "title should atleast contain 2 to 100 characters")
+	@NotBlank(message = "sub title should atleast contain 2 to 100 characters")
 	@Size(min = 2, max = 100, message = "title should atleast contain 2 to 100 characters")
 	@Column(name = "sub_title", updatable = true, nullable = false)
 	private String subTitle;
@@ -49,11 +49,7 @@ public class Product {
 	private String desc;
 	
 	@ManyToMany
-    @JoinTable(
-    		name = "product_categories", 
-    		joinColumns = @JoinColumn(name = "product_id"), 
-    		inverseJoinColumns = @JoinColumn(name = "category_id")
-    		)
+    @JoinTable(name = "product_categories", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories = new ArrayList<>();
 		
 	@Column(name = "price", nullable = false)
